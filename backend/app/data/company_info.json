@@ -1,0 +1,103 @@
+{
+    "metadata": {
+        "company_name": "Promtior",
+        "last_updated": "2024-03-14"
+    },
+    "content": {
+        "hero": {
+            "title": "Accelerate your GenAI adoption",
+            "description": "We boost operational efficiency in businesses with customized GenAI solutions, from discovery and development to implementation."
+        },
+        "about": {
+            "main_description": "Building Human-AI Collaboration",
+            "mission": "We help companies to achieve efficiency in the operative business process with tailored GenAI solutions.",
+            "vision": "Integrate Generative AI across all operations, to lead the digital era. Our AI systems seamlessly optimize processes and decision-making, enhancing your organization's capabilities in various areas."
+        },
+        "services": {
+            "main_services": [
+                {
+                    "title": "GenAI Product Delivery",
+                    "description": "Delivering complete GenAI solutions from ideation to implementation, including predictive analytics, intelligent automation, among others."
+                },
+                {
+                    "title": "GenAI Department as a service",
+                    "description": "Boosting your team performance with expert GenAI talents from LATAM, offering AI development and automation in your timezone."
+                },
+                {
+                    "title": "GenAI Adoption Consulting",
+                    "description": "Transforming complex data into actionable insights by connecting AI with your business goals, our expertise in no-code platforms, AI automation."
+                }
+            ],
+            "capabilities": {
+                "operations": [
+                    "Automate repetitive tasks",
+                    "Optimize workflow processes",
+                    "Reduce manual errors"
+                ],
+                "technology": [
+                    "Auto-generate and review code",
+                    "Automate software testing",
+                    "Optimize IT resources"
+                ],
+                "sales": [
+                    "Personalize customer communications",
+                    "Predict customer needs",
+                    "Automate lead follow-ups"
+                ],
+                "legal": [
+                    "Quickly extract key information form documents",
+                    "Generate draft contracts",
+                    "Comparative analysis of regulations"
+                ],
+                "customer_service": [
+                    "Provide automated and personalized responses",
+                    "Real-time sentiment analysis",
+                    "Proactive case and ticket management"
+                ],
+                "finance": [
+                    "Predictive analysis of financial trends",
+                    "Automatically generate financial reports",
+                    "Detect fraud and anomalies"
+                ]
+            }
+        },
+        "partners": [
+            "Microsoft",
+            "Microsoft For Starups",
+            "AWS",
+            "OpenAI"
+        ],
+        "metrics": [
+            {
+                "value": "70%",
+                "description": "productivity boosted by AI in businesses"
+            },
+            {
+                "value": "3.5x",
+                "description": "return for every $1"
+            },
+            {
+                "value": "91%",
+                "description": "leading orgs are investing in AI"
+            }
+        ],
+        "case_studies": [
+            {
+                "title": "Streamlining Credit Approvals",
+                "result": "With this project, our client achieved savings of $1.4 million over a 12-month period."
+            },
+            {
+                "title": "Transforming Call Centers",
+                "result": "Our client achieved a 90% reduction in response time and a significant increase in call center accuracy."
+            }
+        ],
+        "contact": {
+            "website": "www.promtior.ai",
+            "social_media": {
+                "linkedin": "https://www.linkedin.com/company/promtior-ai",
+                "instagram": "https://www.instagram.com/promtior.ai/",
+                "clutch": "https://clutch.co/profile/promtior#highlights"
+            }
+        }
+    }
+} 
