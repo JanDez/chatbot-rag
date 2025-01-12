@@ -1,4 +1,5 @@
-FROM python:3.9.13-slim
+# Specify platform explicitly
+FROM --platform=linux/amd64 python:3.9.13-slim
 
 # Set the working directory
 WORKDIR /app
@@ -34,6 +35,5 @@ RUN if [ -d "/app/backend/app/data" ]; then \
 # Expose the port the app runs on
 EXPOSE 8000
 
-# Command to run the application
-ENTRYPOINT ["python", "-m"]
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+# Use shell form instead of exec form for CMD
+CMD uvicorn app.main:app --host 0.0.0.0 --port 8000
