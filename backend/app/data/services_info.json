@@ -1,0 +1,67 @@
+{
+    "metadata": {
+        "company_name": "Promtior",
+        "last_updated": "2024-03-14"
+    },
+    "services": {
+        "main_services": [
+            {
+                "title": "GenAI Product Delivery",
+                "description": "Tailored solutions for demanding customers. We offer customized generative AI solutions that drive innovation, enhance operational efficiency, and create unique customer experiences, empowering your business growth in the digital age."
+            },
+            {
+                "title": "Predictive Analytics",
+                "description": "Implement advanced predictive models that leverage generative AI to forecast trends and behaviors, empowering clients to make proactive decisions and optimizing their operations."
+            },
+            {
+                "title": "Intelligent Automation",
+                "description": "Design and integrate smart automation systems that utilize generative AI to enhance efficiency and accuracy in processes, reducing manual effort and improving productivity across various business functions."
+            },
+            {
+                "title": "AI-Driven Chatbots",
+                "description": "Develop specialized chatbots powered by generative AI, tailored to provide dynamic customer support, interaction, and engagement, enhancing user experience and operational responsiveness."
+            },
+            {
+                "title": "Image Processing",
+                "description": "Offer cutting-edge visual recognition systems and image processing solutions that apply generative AI to analyze and interpret visual data, enabling applications in security, quality control, and more."
+            },
+            {
+                "title": "GenAI Department as a Service",
+                "description": "Accelerate your innovations with our stress-free GenAI talent augmentation. We supply high-performing teams that integrate effortlessly with your internal team, ensuring a seamless collaboration without any hassles."
+            },
+            {
+                "title": "GenAI Adoption Consulting",
+                "description": "Discover areas for improvement and opportunities in your business with AI. As generative AI consultants, we master complexity, accelerate innovation, and help you stand out in the market."
+            }
+        ],
+        "industries": {
+            "fintech": [
+                "Automate repetitive tasks.",
+                "Optimize workflow processes.",
+                "Reduce manual errors."
+            ],
+            "legal": [
+                "AI processes legislation.",
+                "Answers questions about current legal documents accurately and quickly."
+            ],
+            "banking": [
+                "AI automates credit approval.",
+                "Analyzes data.",
+                "Scores risks."
+            ],
+            "logistics": [
+                "System automates order analysis.",
+                "Processes multimedia data.",
+                "Uploads to management systems."
+            ],
+            "health": [
+                "AI system assists call centers.",
+                "Answering specialist-level inquiries about contracts and patients."
+            ],
+            "human_resources": [
+                "AI system processes resumes.",
+                "Identifies top candidates matching job descriptions efficiently."
+            ]
+        }
+    }
+} 

@@ -1,0 +1,52 @@
+{
+    "metadata": {
+        "company_name": "Promtior",
+        "last_updated": "2024-03-14"
+    },
+    "case_studies": [
+        {
+            "client": "Blue Cross Blue Shield",
+            "challenge": "Inefficiencies in call center operations due to lengthy response times and complex medical documentation.",
+            "solution": "Developed a cutting-edge AI system leveraging generative AI, vector databases, and LangChain to process complex medical inquiries in under 40 seconds.",
+            "results": {
+                "response_time_reduction": "90%",
+                "average_response_time": "30-60 seconds",
+                "agent_efficiency": "Increased inquiries handled per shift",
+                "error_rate": "Plummeted due to AI-powered information retrieval"
+            }
+        },
+        {
+            "client": "CAF",
+            "challenge": "Creating a 90-page Operational Manual for credit evaluation took 6-12 months and cost over $1 million annually.",
+            "solution": "Developed an AI-based system using Microsoft's Azure cloud to automate the creation of the Operational Manual.",
+            "results": {
+                "cost_savings": "$1.4 million over 12 months",
+                "manual_creation_time": "Reduced from 6-12 months to one week",
+                "recognition": "Microsoft recognized Promtior's expertise in this strategic partnership"
+            }
+        },
+        {
+            "client": "Handy",
+            "challenge": "Need for training on generative AI and automation for operational teams.",
+            "solution": "Delivered training workshops and hands-on sessions to support AI-driven automation.",
+            "results": {
+                "efficiency_improvements": "Significant reduction in manual tasks, saving time and reducing errors.",
+                "feedback": "Overwhelmingly positive from the team"
+            }
+        },
+        {
+            "client": "FAS",
+            "challenge": "Simplifying essential operational processes like truck tracking and digitizing delivery notes.",
+            "solution": "Implemented AI-powered automation for various processes.",
+            "results": {
+                "efficiency_improvements": "Significant reduction in time and errors in manual tasks.",
+                "automation_types": [
+                    "Truck tracking automation",
+                    "Non-digital delivery note automation",
+                    "Harvest data automation",
+                    "Document management automation"
+                ]
+            }
+        }
+    ]
+} 

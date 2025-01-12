@@ -12,5 +12,10 @@ services:
       dockerfile: backend/Dockerfile
     ports:
       - "8000:8000"
+    volumes:
+      - huggingface_cache:/root/.cache/huggingface
     depends_on:
       - frontend
+
+volumes:
+  huggingface_cache:
