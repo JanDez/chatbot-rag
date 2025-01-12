@@ -4,7 +4,10 @@
 USERNAME="apokryphos97"
 VERSION="latest"
 
-# Construir imágenes
+# Login a Docker Hub
+docker login
+
+# Construir imágenes individuales
 echo "Construyendo imágenes de Docker..."
 docker build -t $USERNAME/promtior-frontend:$VERSION -f frontend/Dockerfile .
 docker build -t $USERNAME/promtior-backend:$VERSION -f backend/Dockerfile .

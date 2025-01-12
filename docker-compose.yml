@@ -1,15 +1,11 @@
 version: "3.8"
 services:
   frontend:
-    build:
-      context: .
-      dockerfile: frontend/Dockerfile
+    image: apokryphos97/promtior-frontend:latest
     ports:
       - "80:80"
   backend:
-    build:
-      context: .
-      dockerfile: backend/Dockerfile
+    image: apokryphos97/promtior-backend:latest
     ports:
       - "8000:8000"
     volumes:
