@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Brain, Rocket, Target, Users, Zap, MessageCircle, Menu, ArrowRight } from 'lucide-react'
 import { ChatWindow } from '../components/ChatWindow'
 import { useUserStore } from '../store/userStore'
+import { Link } from 'react-router-dom'
 
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false)
@@ -46,9 +47,11 @@ export default function Home() {
                 {item}
               </a>
             ))}
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-              Get Started
-            </Button>
+            <Link to="/admin">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+                Admin Dashboard
+              </Button>
+            </Link>
           </div>
           <Button
             variant="ghost"

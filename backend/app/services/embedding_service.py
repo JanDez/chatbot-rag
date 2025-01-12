@@ -11,7 +11,7 @@ class EmbeddingService:
         self.model = SentenceTransformer('all-MiniLM-L6-v2')
         self.texts = []
         self._initialize_data()
-
+    # Using the json files in the data folder to initialize the data for the embedding model
     def _initialize_data(self):
         """Inicializa los datos desde los JSONs locales"""
         try:
@@ -37,6 +37,7 @@ class EmbeddingService:
             logger.error(f"Error al inicializar datos: {str(e)}")
             self.texts = ["No se pudo obtener información de la empresa"]
 
+    # Extract texts from the json files in the data folder
     def _extract_texts_from_json(self, data: Dict[str, Any]) -> List[str]:
         """Extrae textos de un diccionario JSON de forma recursiva"""
         texts = []
@@ -56,6 +57,7 @@ class EmbeddingService:
         process_value(data)
         return texts
 
+    # Get the most relevant texts for a query
     def get_relevant_context(self, query: str, k: int = 3) -> List[str]:
         """Recupera los k textos más relevantes para una consulta"""
         if not self.texts:
@@ -64,14 +66,15 @@ class EmbeddingService:
         query_embedding = self.model.encode([query])
         text_embeddings = self.model.encode(self.texts)
         
-        # Calcular similitud coseno
+        # Calculate cosine similarity
         similarities = [(text, similarity) for text, similarity in 
                        zip(self.texts, text_embeddings @ query_embedding.T)]
         
-        # Ordenar por similitud y obtener los k más relevantes
+        # Sort by similarity and get the k most relevant
         relevant_texts = sorted(similarities, key=lambda x: x[1], reverse=True)[:k]
         return [text for text, _ in relevant_texts]
 
+    # Get the formatted context for a query
     def get_formatted_context(self, query: str, company_name: str, k: int = 3) -> Tuple[str, List[str]]:
         relevant_texts = self.get_relevant_context(query, k)
         context_text = ' '.join(relevant_texts)
