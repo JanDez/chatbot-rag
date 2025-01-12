@@ -17,7 +17,9 @@ app.add_middleware(
         "http://localhost",
         "http://localhost:5173",
         "https://chatbot-rag-frontend-production.up.railway.app",
-        "https://chatbot-rag-backend-production.up.railway.app"
+        "https://chatbot-rag-backend-production.up.railway.app",
+        "100.64.0.2:46832",
+        "100.64.0.2"
     ],
     allow_credentials=True,
     allow_methods=["*"],
