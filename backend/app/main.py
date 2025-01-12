@@ -13,7 +13,12 @@ app = FastAPI()
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost", "http://localhost:5173"],
+    allow_origins=[
+        "http://localhost",
+        "http://localhost:5173",
+        "https://chatbot-rag-frontend-production.up.railway.app",
+        "https://chatbot-rag-backend-production.up.railway.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
