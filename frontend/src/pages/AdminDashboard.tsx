@@ -6,25 +6,47 @@ import { Input } from '@/components/ui/input'
 import { UserInteractions } from '../types/chat'
 import { ChatItem } from '../components/admin/ChatItem'
 import { StatCard } from '../components/admin/StatCard'
+import { config } from '../lib/config'
 
 export default function AdminDashboard() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedEmail, setSelectedEmail] = useState<string | null>(null)
 
-  const { data: allInteractions } = useQuery<UserInteractions[]>({
+  const { data: interactions, error, isLoading, refetch } = useQuery({
     queryKey: ['interactions'],
     queryFn: async () => {
-      const response = await fetch('http://127.0.0.1:8000/api/interactions')
-      if (!response.ok) throw new Error('Network response was not ok')
-      return response.json()
-    }
-  })
+      try {
+        const response = await fetch(`${config.apiUrl}/api/interactions`, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+        });
+
+        if (!response.ok) {
+          if (response.status === 502 || response.status === 504) {
+            throw new Error('Server timeout - please try again');
+          }
+          throw new Error('Network response was not ok');
+        }
+
+        return response.json();
+      } catch (error) {
+        console.error('Error fetching interactions:', error);
+        throw error;
+      }
+    },
+    retry: 2,
+    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 10000),
+    staleTime: 30000, // Consider data fresh for 30 seconds
+    refetchOnWindowFocus: false,
+  });
 
   const { data: userInteractions } = useQuery<UserInteractions>({
     queryKey: ['interactions', selectedEmail],
     queryFn: async () => {
       if (!selectedEmail) return null; // Prevent fetching if no email is selected
-      const response = await fetch(`http://127.0.0.1:8000/api/interactions/${selectedEmail}`);
+      const response = await fetch(`${config.apiUrl}/api/interactions/${selectedEmail}`);
       if (!response.ok) throw new Error('Network response was not ok');
       return response.json();
     },
@@ -35,18 +57,31 @@ export default function AdminDashboard() {
     queryKey: ['searchInteractions', searchTerm],
     queryFn: async () => {
       if (!searchTerm) return []; // Prevent fetching if no search term
-      const response = await fetch(`http://127.0.0.1:8000/api/interactions/search?user_name=${searchTerm}`);
+      const response = await fetch(`${config.apiUrl}/api/interactions/search?user_name=${searchTerm}`);
       if (!response.ok) throw new Error('Network response was not ok');
       return response.json();
     },
     enabled: !!searchTerm
   });
 
-  const interactionsToDisplay = searchTerm ? searchResults : allInteractions;
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return (
+    <div className="text-red-500">
+      Error: {error.message}
+      <button
+        onClick={() => refetch()}
+        className="ml-4 px-4 py-2 bg-blue-500 text-white rounded"
+      >
+        Retry
+      </button>
+    </div>
+  );
+
+  const interactionsToDisplay = searchTerm ? searchResults : interactions;
 
   const stats = {
-    totalConversations: allInteractions?.length || 0,
-    activeUsers: allInteractions?.filter(i => 
+    totalConversations: interactions?.length || 0,
+    activeUsers: interactions?.filter((i: UserInteractions) =>
       new Date(i.interactions[0].timestamp).getMonth() === new Date().getMonth()
     ).length || 0,
     avgResponseTime: '1.2s',
@@ -68,7 +103,7 @@ export default function AdminDashboard() {
 
         <main className="flex-1 p-8">
           <h2 className="text-3xl font-bold text-foreground mb-8">Dashboard</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <StatCard
               title="Total Conversations"
@@ -96,7 +131,7 @@ export default function AdminDashboard() {
             </div>
 
             <div className="space-y-4">
-              {interactionsToDisplay?.map((interaction) => (
+              {interactionsToDisplay?.map((interaction: UserInteractions) => (
                 <ChatItem
                   key={interaction.user_email}
                   interaction={interaction}
